@@ -1,0 +1,36 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f0f0;
+}
+
+.container {
+    display: flex; /* Use flexbox to align boxes in a row */
+    position: relative; /* Set position relative for absolute positioning context */
+    margin-bottom: 100px; /* Add margin to avoid overlap with the absolute box */
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    background-color: #4CAF50;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px; /* Space between boxes */
+}
+
+.absolute-box {
+    position: absolute; /* Position this box absolutely */
+    top: 50px; /* Adjust as needed */
+    left: 150px; /* Adjust as needed */
+    width: 120px;
+    height: 60px;
+    background-color: #FF5722;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
