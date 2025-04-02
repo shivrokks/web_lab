@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>character,vowel</title>
+</head>
+<body>
+    <input type="text" id="char" placeholder="Enter the character">
+    <button onclick=" isVowel()">Check the vowel</button>
+    <div id="result"></div>
+    <script>
+        function  isVowel(char){
+            var char=document.getElementById("char").value;
+            char=char.toLowerCase()
+            
+            if (char=="a"|| char=="e"|| char=="i" || char=="o"|| char=="u"){
+                document.getElementById("result").innerHTML="The character is a vowel";
+
+            }
+            else{
+                document.getElementById("result").innerHTML="The character is not a vowel";
+            }
+        }
+    </script>
+    
+</body>
+</html>

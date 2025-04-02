@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Translate</title>
+</head>
+<body>
+    <input type="text" id="word" placeholder="Enter a Word">
+    <button onclick="translateText()">Translate</button>
+    <div id="result"></div>
+
+    <script>
+        function translateText() {
+            var text = document.getElementById("word").value;
+            let translated = '';
+            for (let i = 0; i < text.length; i++) {
+                let char = text[i];
+                if (/[b-df-hj-np-tv-z]/i.test(char)) {
+                    translated += char + 'o' + char.toLowerCase();
+                } else {
+                    translated += char;
+                }
+            }
+            document.getElementById("result").innerHTML = "Translated: " + translated;
+        }
+    </script>
+</body>
+</html>

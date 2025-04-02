@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel = "spreadsheet" src="style.css">
+</head>
+<body>
+    <h1>Calculator</h1>
+
+    <label for="numberInput">Enter a number:</label>
+    <input type="number" id="numberInput" placeholder="e.g., 5">
+    <button onclick="runOperations()">Calculate</button>
+
+    <h2>Results:</h2>
+    <pre id="results"></pre>
+
+    <script>
+        function squareNumber(num) {
+            const squared = num * num;
+            console.log(`The result of squaring the number ${num} is ${squared}.`);
+            return squared;
+        }
+        function halfNumber(num) {
+            const halved = num / 2;
+            console.log(`Half of ${num} is ${halved}.`);
+            return halved;
+        }
+
+        function percentOf(num1, num2) {
+            const percentage = (num1 / num2) * 100;
+            console.log(`${num1} is ${percentage}% of ${num2}.`);
+            return percentage;
+        }
+
+            function areaOfCircle(radius) {
+            const area = Math.PI * radius * radius;
+            const roundedArea = parseFloat(area.toFixed(2)); 
+            console.log(`The area for a circle with radius ${radius} is ${roundedArea}.`);
+            return roundedArea;
+        }
+        function performOperations(num) {
+            let results = [];
+            const halved = halfNumber(num);
+            results.push(`Step 1: Half of ${num} is ${halved}.`);
+
+            const squared = squareNumber(halved);
+            results.push(`Step 2: Squaring ${halved} gives ${squared}.`);
+
+            const area = areaOfCircle(squared);
+            results.push(`Step 3: The area of a circle with radius ${squared} is ${area}.`);
+
+            const percentage = percentOf(area, squared);
+            results.push(`Step 4: The area (${area}) is ${percentage}% of the squared result (${squared}).`);
+
+            return results.join("\n");
+        }
+        function runOperations() {
+            const input = document.getElementById("numberInput").value;
+            const number = parseFloat(input);
+
+            if (isNaN(number)) {
+                document.getElementById("results").textContent = "Please enter a valid number.";
+                return;
+            }
+
+            const results = performOperations(number);
+            document.getElementById("results").textContent = results;
+        }
+    </script>
+</body>
+</html>

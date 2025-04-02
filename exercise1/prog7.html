@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christmas Translation</title>
+</head>
+<body>
+    <div id="translationResult"></div>
+
+    <script>
+        const englishToSwedish = {
+            "merry": "god",
+            "christmas": "jul",
+            "and": "och",
+            "happy": "gott",
+            "new": "nytt",
+            "year": "år"
+        };
+
+        function translateToSwedish(englishText) {
+            const words = englishText.toLowerCase().split(" ");
+            const translatedWords = words.map(word => {
+                return englishToSwedish[word] || word;
+            });
+            return translatedWords.join(" ");
+        }
+
+        const englishCard = "Merry Christmas and Happy New Year";
+        const swedishCard = translateToSwedish(englishCard);
+
+        const anotherEnglishCard = "Merry happy day and a new year";
+        const anotherSwedishCard = translateToSwedish(anotherEnglishCard);
+
+        
+        document.getElementById("translationResult").innerHTML = 
+            "<p>English: " + englishCard + "<br>Swedish: " + swedishCard + "</p>" +
+            "<p>English: " + anotherEnglishCard + "<br>Swedish: " + anotherSwedishCard + "</p>";
+
+        console.log(swedishCard);
+        console.log(anotherSwedishCard);
+    </script>
+</body>
+</html>
